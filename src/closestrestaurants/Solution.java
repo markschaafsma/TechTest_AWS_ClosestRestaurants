@@ -53,12 +53,12 @@ import java.util.Scanner;
 public class Solution {
 	
 	public static List<List<Integer>> findClosestStores(int noOfInputCoords, List<List<Integer>> coordsList, int noOfOutputCoords) {
-	    // Write your code here
+		// Write your code here
 		
 		// Print input to stdout
 		System.out.println("Input Data");
 		System.out.println(noOfInputCoords);
-        printPairs(noOfInputCoords, coordsList);
+		printPairs(noOfInputCoords, coordsList);
 		System.out.print(noOfOutputCoords + "\n");
 		
 		// Sort distances in ascending order
@@ -84,37 +84,37 @@ public class Solution {
 
 		// Print sorted collection to stdout
 		System.out.println("Sorted Input Coordinates");
-        printPairs(noOfInputCoords, coordsList);
+		printPairs(noOfInputCoords, coordsList);
 
-        // Add closest coordinates to the recommended list
-   		List<List<Integer>> recommended = new ArrayList<>();  // Ok and best practice - type argument is inferred. 
+		// Add closest coordinates to the recommended list
+		List<List<Integer>> recommended = new ArrayList<>();  // Ok and best practice - type argument is inferred. 
 // 		List<List<Integer>> recommended2 = new ArrayList<List<Integer>>(); // Ok - type argument explicitly stated.
 //		List<List<Integer>> recommended3 = new ArrayList<<>>();  // Not ok - Multiple syntax errors!
 		for (int i = 0; i < noOfOutputCoords; i++) {
 			recommended.add(coordsList.get(i));
-        }
+		}
 
 		// Print recommended coordinates to stdout
 		System.out.println("Recommended Coordinates");
-        printPairs(recommended.size(), recommended);
+		printPairs(recommended.size(), recommended);
    		
 		return recommended;
 	}
 
 	private static void printPairs(int noOfCoords, List<List<Integer>> coordsList) {
 		for (int i = 0; i < noOfCoords; i++) {
-    		System.out.print("[");
-        	for (int j = 0; j < 2; j++) {
-        		System.out.print(coordsList.get(i).get(j));
-        		if (j==0) {System.out.print(",");}
-        	}
-    		System.out.print("]");
-    		if (i < noOfCoords-1) {System.out.print(",");}
-        }
+			System.out.print("[");
+			for (int j = 0; j < 2; j++) {
+				System.out.print(coordsList.get(i).get(j));
+				if (j==0) {System.out.print(",");}
+			}
+			System.out.print("]");
+			if (i < noOfCoords-1) {System.out.print(",");}
+		}
 		System.out.print("\n");
 	}
 	
-    private static final Scanner scan = new Scanner(System.in);
+	private static final Scanner scan = new Scanner(System.in);
 
     /**
      * Testcases
@@ -136,45 +136,45 @@ public class Solution {
      *   Expected Output
      *    [2,3],[3,1]
      */        
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-    	BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt"));
 
-    	// Read the number of input coordinate pairs
-        String s = scan.nextLine();
-        int n = Integer.parseInt(s);
+		// Read the number of input coordinate pairs
+		String s = scan.nextLine();
+		int n = Integer.parseInt(s);
 
-    	// Read the list of coordinate pairs
-        List<List<Integer>> list = new ArrayList<List<Integer>>();
-        for (int i = 0; i < n; i++) {
-        	List<Integer> coords = new ArrayList<>();
-        	for (int j = 0; j < 2; j++) {
-                s = scan.nextLine();
-                int c = Integer.parseInt(s);
-            	coords.add(c);
-        	}
-        	list.add(coords);
-        }
+		// Read the list of coordinate pairs
+		List<List<Integer>> list = new ArrayList<List<Integer>>();
+		for (int i = 0; i < n; i++) {
+			List<Integer> coords = new ArrayList<>();
+			for (int j = 0; j < 2; j++) {
+				s = scan.nextLine();
+				int c = Integer.parseInt(s);
+				coords.add(c);
+			}
+			list.add(coords);
+		}
     	
-    	// Read the number of coordinate pairs to return    	
-        s = scan.nextLine();
-        int x = Integer.parseInt(s);
+		// Read the number of coordinate pairs to return    	
+		s = scan.nextLine();
+		int x = Integer.parseInt(s);
         
-    	List<List<Integer>> results = findClosestStores(n,list,x);
+		List<List<Integer>> results = findClosestStores(n,list,x);
 
-    	// Write results
+		// Write results
 		for (int i = 0; i < results.size(); i++) {
 			bw.write("[");
-        	for (int j = 0; j < 2; j++) {
-        		bw.write(results.get(i).get(j).toString());
-        		if (j==0) {bw.write(",");}
-        	}
-    		bw.write("]");
-    		if (i < results.size()-1) {bw.write(",");}
-        }
+			for (int j = 0; j < 2; j++) {
+				bw.write(results.get(i).get(j).toString());
+				if (j==0) {bw.write(",");}
+			}
+			bw.write("]");
+			if (i < results.size()-1) {bw.write(",");}
+		}
 		bw.newLine();
-        bw.close();
-    }	
+		bw.close();
+	}	
 	
 }
 
@@ -183,7 +183,7 @@ class SortByDistance implements Comparator<List<Integer>> {
 	
     // Used for sorting in ascending distance order 
 	@Override
-    public int compare(List<Integer> a, List<Integer> b) { 
+	public int compare(List<Integer> a, List<Integer> b) { 
     	
 		// Calculate absolute distance for each pair
 		int aDistance = 0;
