@@ -2,7 +2,8 @@
 
 ### Overview
 
-
+This repository contains my Java SE 8 solution to a Technical Test, "Closest Restuarants", which I did for AWS 
+in November 2018.
 
 ### Problem 
 
